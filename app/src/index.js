@@ -10,6 +10,7 @@ const App = {
     const { web3 } = this;
 
     try {
+		console.log("in try")
       // get contract instance
       const networkId = await web3.eth.net.getId();
       const deployedNetwork = starNotaryArtifact.networks[networkId];
@@ -34,14 +35,18 @@ const App = {
   createStar: async function() {
     const { createStar } = this.meta.methods;
     const name = document.getElementById("starName").value;
-    const id = document.getElementById("starId").value;
+	const id = document.getElementById("starId").value;
     await createStar(name, id).send({from: this.account});
     App.setStatus("New Star Owner is " + this.account + ".");
   },
 
   // Implement Task 4 Modify the front end of the DAPP
   lookUp: async function (){
-    
+	  //get the function
+	  const {lookUptokenIdToStarInfo} = this.meta.methods;
+	  const id = document.getElementById("lookid").value;
+	  let starName = await lookUptokenIdToStarInfo(id).call();
+	App.setStatus(`This is the star - ${starName}`)
   }
 
 };

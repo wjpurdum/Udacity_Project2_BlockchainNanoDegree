@@ -1,138 +1,71 @@
 # ND1309 C2 Ethereum Smart Contracts, Tokens and Dapps - Project Starter 
-**PROJECT: Decentralized Star Notary Service Project** - For this project, you will create a DApp by adding functionality with your smart contract and deploy it on the public testnet.
+**PROJECT: Decentralized Star Notary Service Project** 
 
-### ToDo
-This Starter Code has already implemented the functionalities you implemented in the StarNotary (Version 2) exercise, and have comments in all the files you need to implement your tasks.
+### ERC721 Token Name: "Star Power"
+### ERC721 Token Symbol "SPWR"
 
-
-
-### Dependencies
-For this project, you will need to have:
-1. **Node and NPM** installed - NPM is distributed with [Node.js](https://www.npmjs.com/get-npm)
-```bash
-# Check Node version
-node -v
-# Check NPM version
-npm -v
-```
+### Token Address on Rinkeby Network:
+"0x53a88064699914406f00D611e5079Dea58039349"
+Starting migrations...
+======================
+> Network name:    'rinkeby'
+> Network id:      4
+> Block gas limit: 29999858 (0x1c9c2f2)
 
 
-2. **Truffle v5.X.X** - A development framework for Ethereum. 
-```bash
-# Unsinstall any previous version
-npm uninstall -g truffle
-# Install
-npm install -g truffle
-# Specify a particular version
-npm install -g truffle@5.0.2
-# Verify the version
-truffle version
-```
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0xfabd380170527f426771e388b0e257ebb52df118bd07c56a1e324f45bd13144a
+   > Blocks: 1            Seconds: 16
+   > contract address:    0xE2D0Bc4407AeeA191b3117285A9aCa92b28071FD
+   > block number:        9092534
+   > block timestamp:     1628628324
+   > account:             0x6fd9aDF3FEa513591efE5b4F06BF65829188a62D
+   > balance:             1.9971666
+   > gas used:            283340 (0x452cc)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0028334 ETH
 
 
-2. **Metamask: 5.3.1** - If you need to update Metamask just delete your Metamask extension and install it again.
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.0028334 ETH
 
 
-3. [Ganache](https://www.trufflesuite.com/ganache) - Make sure that your Ganache and Truffle configuration file have the same port.
+2_deploy_contracts.js
+=====================
+
+   Deploying 'StarNotary'
+   ----------------------
+   > transaction hash:    0x4a69b90bafafffd7c59d475de01d646d76fab821bd373ea1264a49a51fcbed47
+   > Blocks: 0            Seconds: 12
+   > contract address:    0x53a88064699914406f00D611e5079Dea58039349
+   > block number:        9092536
+   > block timestamp:     1628628354
+   > account:             0x6fd9aDF3FEa513591efE5b4F06BF65829188a62D
+   > balance:             1.96840231
+   > gas used:            2830486 (0x2b3096)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02830486 ETH
 
 
-4. **Other mandatory packages**:
-```bash
-cd app
-# install packages
-npm install --save  openzeppelin-solidity@2.3
-npm install --save  truffle-hdwallet-provider@1.0.17
-npm install webpack-dev-server -g
-npm install web3
-```
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.02830486 ETH
+### Truffle Version:
+Truffle v5.4.5 (core: 5.4.5)
+Solidity - 0.8.0 (solc-js)
+Node v12.18.4
+Web3.js v1.5.1
+
+### OpenZeppeling Version:
+"@openzeppelin/contracts": "^4.2.0",
 
 
-### Run the application
-1. Clean the frontend 
-```bash
-cd app
-# Remove the node_modules  
-# remove packages
-rm -rf node_modules
-# clean cache
-npm cache clean
-rm package-lock.json
-# initialize npm (you can accept defaults)
-npm init
-# install all modules listed as dependencies in package.json
-npm install
-```
-
-
-2. Start Truffle by running
-```bash
-# For starting the development console
-truffle develop
-# truffle console
-
-# For compiling the contract, inside the development console, run:
-compile
-
-# For migrating the contract to the locally running Ethereum network, inside the development console
-migrate --reset
-
-# For running unit tests the contract, inside the development console, run:
-test
-```
-
-3. Frontend - Once you are ready to start your frontend, run the following from the app folder:
-```bash
-cd app
-npm run dev
-```
-
----
-
-### Important
-When you will add a new Rinkeyby Test Network in your Metamask client, you will have to provide:
-
-| Network Name | New RPC URL | Chain ID |
-|---|---|---|
-|Private Network 1|`http://127.0.0.1:9545/`|1337 |
-
-The chain ID above can be fetched by:
-```bash
-cd app
-node index.js
-```
-
-## Troubleshoot
-#### Error 1 
-```
-'webpack-dev-server' is not recognized as an internal or external command
-```
-**Solution:**
-- Delete the node_modules folder, the one within the /app folder
-- Execute `npm install` command from the /app folder
-
-After a long install, everything will work just fine!
-
-
-#### Error 2
-```
-ParserError: Source file requires different compiler version. 
-Error: Truffle is currently using solc 0.5.16, but one or more of your contracts specify "pragma solidity >=0.X.X <0.X.X".
-```
-**Solution:** In such a case, ensure the following in `truffle-config.js`:
-```js
-// Configure your compilers  
-compilers: {    
-  solc: {      
-    version: "0.5.16", // <- Use this        
-    // docker: true,
-    // ...
-```
-
-## Raise a PR or report an Issue
-1. Feel free to raise a [Pull Request](https://github.com/udacity/nd1309-p2-Decentralized-Star-Notary-Service-Starter-Code/pulls) if you find a bug/scope of improvement in the current repository. 
-
-2. If you have suggestions or facing issues, you can log in issue. 
-
----
-
-Do not use the [Old depreacted zipped starter code](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/January/5c51c4c0_project-5-starter-code/project-5-starter-code.zip)
